@@ -70,6 +70,54 @@ function viewRoles() {
     })
 }
 
+function addDepartment() {
+    inquirer.prompt([{
+        type: 'input',
+        message: 'Enter department name',
+        name: 'departmentname'
+    }])
+    .then(response => {
+        db.query('INSERT INTO departments (department_name) VALUES(?);',
+        response.departmentname,
+         function(err, data){
+            if(err)
+            throw err;
+            console.table(data)
+            displayOptions();
+        })
+    })
+}
+
+function addRoles() {
+    inquirer.prompt([
+        {
+        type: 'input',
+        message: 'Enter title',
+        name: 'title'
+    },
+    {
+        type: 'input',
+        message: 'Enter salary',
+        name: 'salary'
+    },
+    {
+        type: 'input',
+        message: 'Enter department ID',
+        name: 'departmentid'
+    },
+])
+    .then(response => {
+        db.query('INSERT INTO roles (title, salary, department_id) VALUES(?,?,?);',
+        [response.title, response.salary, response.departmentid],
+         function(err, data){
+            if(err)
+            throw err;
+            console.table(data)
+            displayOptions();
+        })
+    })
+}
+
 
 
 

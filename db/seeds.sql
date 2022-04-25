@@ -23,20 +23,21 @@ VALUES
     ('Quality Assurance Lead', 70000, 4),
     ('Quality Assurance Level C', 60000, 4);
 
+
     INSERT INTO employees(first_name, last_name, role_id, manager_id)
     VALUES
-    ('Mike', 'Tyson', 100, 01),
-    ('Michael', 'Jordan', 101, 01),
-    ('Donovan', 'Mitchell', 102, 01),
+    ('Mike', 'Tyson', 1, NULL),  
+    ('Michael', 'Jordan', 10, NULL),
+    ('Donovan', 'Mitchell', 6, NULL),
 
-    ('Rudy', 'Gobert', 103, 02),
-    ('Mia', 'Hamm', 104, 02),
-    ('Aja', 'Wilson', 105, 02),
+    ('Rudy', 'Gobert', 7, NULL),
+    ('Mia', 'Hamm', 11,2),
+    ('Aja', 'Wilson', 12, 2);
 
-    ('Cam', 'Puck', 106, 03),
-    ('Billy', 'Joggle', 107, 03),
-    ('Jack', 'John', 108, 03),
+    ('Cam', 'Puck', 3, 03),
+    ('Billy', 'Joggle', 4, 03),
+    ('Jack', 'John', 5, 03),
 
-    ('John', 'Jack', 109, 04),
-    ('Marceline', 'Edge', 110, 04),
-    ('Tucker', 'Edge', 111, 04);
+    ('John', 'Jack', 8, 04),
+    ('Marceline', 'Edge', 9, 04),
+    ('Tucker', 'Edge', 2, 04);
