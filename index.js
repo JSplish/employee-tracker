@@ -1,6 +1,10 @@
-const db = require("./db/connection");
+const db = require("./config/connection");
 const cTable = require("console.table");
 const inquirer = require("inquirer");
+
+
+function displayOptions() {
+
 
 inquirer.prompt([{ 
     type: 'list',
@@ -37,3 +41,38 @@ inquirer.prompt([{
             process.exit(0)
     }
 })
+}
+
+function viewEmployee() {
+    db.query('SELECT * FROM employees;', function(err, data){
+        if(err)
+        throw err;
+        console.table(data)
+        displayOptions();
+    })
+}
+
+function viewDepartments() {
+    db.query('SELECT * FROM departments;', function(err, data){
+        if(err)
+        throw err;
+        console.table(data)
+        displayOptions();
+    })
+}
+
+function viewRoles() {
+    db.query('SELECT * FROM roles;', function(err, data){
+        if(err)
+        throw err;
+        console.table(data)
+        displayOptions();
+    })
+}
+
+
+
+
+
+
+displayOptions();
