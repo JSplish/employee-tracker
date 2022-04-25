@@ -116,7 +116,42 @@ function addRoles() {
             displayOptions();
         })
     })
-}
+} 
+
+function addEmployee() {
+    inquirer.prompt([
+        {
+        type: 'input',
+        message: 'Enter first name',
+        name: 'first'
+    },
+    {
+        type: 'input',
+        message: 'Enter last name',
+        name: 'last'
+    },
+    {
+        type: 'input',
+        message: 'Enter role ID',
+        name: 'roleid'
+    },
+    {
+        type: 'input',
+        message: 'Enter manager ID',
+        name: 'managerid'
+    },
+])
+    .then(response => {
+        db.query('INSERT INTO employees(first_name, last_name, role_id, manager_id) VALUES(?,?,?,?);',
+        [response.first, response.last, response.roleid, response.managerid],
+         function(err, data){
+            if(err)
+            throw err;
+            console.table(data)
+            displayOptions();
+        })
+    })
+} 
 
 
 
